@@ -12,8 +12,8 @@ void FSMTorquePDTaskTester_Initial::start(mc_control::fsm::Controller & ctl_)
 bool FSMTorquePDTaskTester_Initial::run(mc_control::fsm::Controller & ctl_)
 {
   auto & ctl = static_cast<FSMTorquePDTaskTester &>(ctl_);
-  output("OK");
-  return true;
+  // output("OK");
+  return false;
 }
 
 void FSMTorquePDTaskTester_Initial::teardown(mc_control::fsm::Controller & ctl_)

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <mc_control/fsm/Controller.h>
-
+#include <mc_tasks/TorquePDJointTask.h>
 #include "api.h"
 
 struct FSMTorquePDTaskTester_DLLAPI FSMTorquePDTaskTester : public mc_control::fsm::Controller
@@ -11,6 +11,8 @@ struct FSMTorquePDTaskTester_DLLAPI FSMTorquePDTaskTester : public mc_control::f
   bool run() override;
 
   void reset(const mc_control::ControllerResetData & reset_data) override;
+
+  std::shared_ptr<mc_tasks::TorquePDJointTask> torquePDTask;
 
 private:
   mc_rtc::Configuration config_;
