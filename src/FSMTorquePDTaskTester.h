@@ -4,9 +4,9 @@
 
 #include "api.h"
 
-struct NewFSMController_DLLAPI NewFSMController : public mc_control::fsm::Controller
+struct FSMTorquePDTaskTester_DLLAPI FSMTorquePDTaskTester : public mc_control::fsm::Controller
 {
-  NewFSMController(mc_rbdyn::RobotModulePtr rm, double dt, const mc_rtc::Configuration & config);
+  FSMTorquePDTaskTester(mc_rbdyn::RobotModulePtr rm, double dt, const mc_rtc::Configuration & config);
 
   bool run() override;
 
