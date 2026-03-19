@@ -27,6 +27,7 @@ FSMTorquePDTaskTester::FSMTorquePDTaskTester(mc_rbdyn::RobotModulePtr rm, double
   }
 
   std::string tool_frame = config("frame_name", (std::string) "tool_frame");
+  std::string relative_frame = config("relative_frame_name", (std::string) "world");
 
 
   torquePDCartesianTask = std::make_shared<mc_tasks::TorquePDCartesianTask>(
@@ -34,6 +35,11 @@ FSMTorquePDTaskTester::FSMTorquePDTaskTester(mc_rbdyn::RobotModulePtr rm, double
   torquePDCartesianTask->setCompensateGravity(true);
   
   solver().addTask(torquePDCartesianTask);
+
+  // torquePDRelativeCartesianTask = std::make_shared<mc_tasks::TorquePDRelativeCartesianTask>(
+  //     solver(), tool_frame, relative_frame, robots(), robot().robotIndex());
+  // torquePDRelativeCartesianTask->setCompensateGravity(true);
+  // solver().addTask(torquePDRelativeCartesianTask);
 
   datastore().make<std::string>("ControlMode", "Torque");
   datastore().make<std::string>("TorqueMode", "Custom");

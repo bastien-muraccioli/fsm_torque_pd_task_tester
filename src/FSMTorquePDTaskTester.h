@@ -3,6 +3,7 @@
 #include <mc_control/fsm/Controller.h>
 #include <mc_tasks/TorquePDJointTask.h>
 #include <mc_tasks/TorquePDCartesianTask.h>
+#include <mc_tasks/TorquePDRelativeCartesianTask.h>
 #include "api.h"
 
 struct FSMTorquePDTaskTester_DLLAPI FSMTorquePDTaskTester : public mc_control::fsm::Controller
@@ -15,6 +16,7 @@ struct FSMTorquePDTaskTester_DLLAPI FSMTorquePDTaskTester : public mc_control::f
 
   std::shared_ptr<mc_tasks::TorquePDJointTask> torquePDTask;
   std::shared_ptr<mc_tasks::TorquePDCartesianTask> torquePDCartesianTask;
+  std::shared_ptr<mc_tasks::TorquePDRelativeCartesianTask> torquePDRelativeCartesianTask;
 private:
   mc_rtc::Configuration config_;
 };
