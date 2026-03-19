@@ -42,4 +42,4 @@ transitions:
 init: FSMTorquePDTaskTester_Initial
 
 frame_name: tool_frame
-relative_frame_name: base_link
+relative_frame_name: forearm_link
