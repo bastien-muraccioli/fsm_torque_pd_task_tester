@@ -7,6 +7,10 @@ void FSMTorquePDTaskTester_Initial::configure(const mc_rtc::Configuration & conf
 void FSMTorquePDTaskTester_Initial::start(mc_control::fsm::Controller & ctl_)
 {
   auto & ctl = static_cast<FSMTorquePDTaskTester &>(ctl_);
+   // Enable feedback from external forces estimator
+  if (!ctl.datastore().call<bool>("EF_Estimator::isActive")) {
+    ctl.datastore().call("EF_Estimator::toggleActive");
+  }
 }
 
 bool FSMTorquePDTaskTester_Initial::run(mc_control::fsm::Controller & ctl_)

@@ -26,6 +26,13 @@ collisions:
 - type: collision
   useMinimal: true
 
+ObserverPipelines:
+- name: Pipeline
+  observers:
+    - type: Encoder
+      config:
+        velocity: encoderVelocities
+
 # Implement some additional text states
 states: {}
 # Transitions map
@@ -33,3 +40,5 @@ transitions:
 - [FSMTorquePDTaskTester_Initial, OK, FSMTorquePDTaskTester_Initial, Strict]
 # Initial state
 init: FSMTorquePDTaskTester_Initial
+
+frame_name: tool_frame
