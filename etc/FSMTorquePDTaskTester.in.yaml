@@ -32,6 +32,23 @@ ObserverPipelines:
     - type: Encoder
       config:
         velocity: encoderVelocities
+    # - type: BodySensor
+    #   update: false
+    #   # config:
+    #   #   bodySensor: FloatingBase
+
+    - type: Tilt
+      required: true
+      update: true
+      config:
+        anchorFrameFunction: anchorFrameFunction
+        filterGains:
+          initAlpha: 2 # 5 # 0.0
+          initBeta: 2 # 1 # 0.0 # 0.00001
+          initGamma: 1 # 2 # 0.0
+          finalAlpha: 2 # 5 # 0.0
+          finalBeta: 2 # 1 # 0.0 # 0.00001
+          finalGamma: 1 # 2 # 0.0
 
 # Implement some additional text states
 states: {}
@@ -41,5 +58,6 @@ transitions:
 # Initial state
 init: FSMTorquePDTaskTester_Initial
 
-frame_name: tool_frame
-relative_frame_name: base_link
+left_hand_frame_name: left_hand_link
+right_hand_frame_name: right_hand_link
+relative_frame_name: pelvis
