@@ -28,15 +28,15 @@ FSMTorquePDTaskTester::FSMTorquePDTaskTester(mc_rbdyn::RobotModulePtr rm, double
 
   std::string left_hand_frame = config("left_hand_frame_name", (std::string) "left_hand_link");
   std::string right_hand_frame = config("right_hand_frame_name", (std::string) "right_hand_link");
-  // std::string relative_frame = config("relative_frame_name", (std::string) "world");
+  std::string relative_frame = config("relative_frame_name", (std::string) "pelvis");
 
   LeftHandTask = std::make_shared<mc_tasks::TorquePDRelativeCartesianTask>(
-      solver(), left_hand_frame, robots(), robot().robotIndex());
+      solver(), left_hand_frame, relative_frame, robots(), robot().robotIndex());
   LeftHandTask->setCompensateGravity(true);
   solver().addTask(LeftHandTask);
 
   RightHandTask = std::make_shared<mc_tasks::TorquePDRelativeCartesianTask>(
-      solver(), right_hand_frame, robots(), robot().robotIndex());
+      solver(), right_hand_frame, relative_frame, robots(), robot().robotIndex());
   RightHandTask->setCompensateGravity(true);
   solver().addTask(RightHandTask);
 
